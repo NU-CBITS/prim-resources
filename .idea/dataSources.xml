@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="454868619">
+    <data-source source="LOCAL" name="Rails prim-resources: development" uuid="fa2c42bf-d572-4252-b905-ffa40901e8cf">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/prim_development</jdbc-url>
+      <user-name>prim</user-name>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails prim-resources: test" uuid="79f70f1d-db1c-4e79-935d-55e34a7cd30e">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1/prim-participant_test</jdbc-url>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails prim-resources: production" uuid="cae080ba-55e2-421d-8789-db38af04036d">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1/prim_production</jdbc-url>
+      <user-name>prim</user-name>
+      <user-password>df96df8fdf97df8adfefdfe4dffcdff1df8ddffadff8dfe3dfe7df87dffadfebdff8dffedfe3dfe9dfe3dffadfebdfe4dffedff5dfeedfebdffedfebdfe8dfebdff9dfefdff5dffadfebdff9dff9dffddfe5dff8dfeedf8ddff7df8adf8fdf94</user-password>
+      <libraries />
+    </data-source>
+  </component>
+</project>
+
