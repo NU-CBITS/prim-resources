@@ -19,10 +19,10 @@ default: &default
   encoding: unicode
   pool: 5
   host: localhost
+  username: prim
 
 development:
   <<: *default
-  username: prim
   database: prim_development
   password:
   encoding: unicode

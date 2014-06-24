@@ -12,6 +12,7 @@
       <driver-ref>postgresql</driver-ref>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://127.0.0.1/prim-participant_test</jdbc-url>
+      <user-name>prim</user-name>
       <libraries />
     </data-source>
     <data-source source="LOCAL" name="Rails prim-resources: production" uuid="cae080ba-55e2-421d-8789-db38af04036d">
