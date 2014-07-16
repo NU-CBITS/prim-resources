@@ -15,12 +15,13 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'spring', group: :development
-gem 'prim_engine', github: 'eschlange/prim-engine'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0.beta2'
   gem 'factory_girl_rails'
 end
+
+gem 'hashids'
 
 group :development do
   gem 'capistrano', '~> 3.2.0', require: false
