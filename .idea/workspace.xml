@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1aec621d-a479-46e6-9de0-cf3c4adbac3e" name="Default" comment="Initial code commit for PRIM RESTful api.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/controllers/prim_engine/api/v1/phones_controller.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/screening.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/prim_engine/api/v1/emails_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/prim_engine/api/v1/emails_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="1aec621d-a479-46e6-9de0-cf3c4adbac3e" name="Default" comment="Initial code commit for PRIM RESTful api." />
     <ignored path="prim-participant.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -53,10 +47,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="phones_controller.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="phones_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/prim_engine/api/v1/phones_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="58" column="68" selection-start="1575" selection-end="1575" vertical-scroll-proportion="0.51086956" vertical-offset="856" max-vertical-offset="1224">
+            <state line="58" column="68" selection-start="1575" selection-end="1575" vertical-scroll-proportion="-6.266667" vertical-offset="856" max-vertical-offset="1224">
               <folding />
             </state>
           </provider>
@@ -98,10 +92,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="20140718153355_create_screening.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="20140718153355_create_screening.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/db/migrate/20140718153355_create_screening.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="288">
+            <state line="6" column="22" selection-start="214" selection-end="214" vertical-scroll-proportion="0.2713568" vertical-offset="0" max-vertical-offset="398">
               <folding />
             </state>
           </provider>
@@ -663,7 +657,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26009792" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26009792" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4882227" sideWeight="0.33231333" order="7" side_tool="true" content_ui="tabs" />
@@ -950,13 +944,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20140718153355_create_screening.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="373">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/social_security_number.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="0" selection-start="0" selection-end="188" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="234">
@@ -994,7 +981,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/prim_engine/api/v1/phones_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="68" selection-start="1575" selection-end="1575" vertical-scroll-proportion="0.51086956" vertical-offset="856" max-vertical-offset="1224">
+        <state line="58" column="68" selection-start="1575" selection-end="1575" vertical-scroll-proportion="-6.266667" vertical-offset="856" max-vertical-offset="1224">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20140718153355_create_screening.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="22" selection-start="214" selection-end="214" vertical-scroll-proportion="0.2713568" vertical-offset="0" max-vertical-offset="398">
           <folding />
         </state>
       </provider>
