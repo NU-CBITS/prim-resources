@@ -2,24 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1aec621d-a479-46e6-9de0-cf3c4adbac3e" name="Default" comment="Initial code commit for PRIM RESTful api.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/address.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/date_of_birth.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/email.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/controllers/prim_engine/api/v1/emails_controller.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/health_insurance_beneficiary_number.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/ip_address_number.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/medical_record_number.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/name.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/participant.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/controllers/prim_engine/api/v1/participants_controller.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/phone.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/social_security_number.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.generators" afterPath="$PROJECT_DIR$/.idea/.generators" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.rakeTasks" afterPath="$PROJECT_DIR$/.idea/.rakeTasks" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/prim-resources.iml" afterPath="$PROJECT_DIR$/.idea/prim-resources.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/controllers/prim_engine/api/v1/phones_controller.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/screening.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/prim_engine/api/v1/emails_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/prim_engine/api/v1/emails_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -34,7 +19,7 @@
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/prim-resources@Development__prim_participant.coverage" NAME="Development: prim-participant Coverage Results" MODIFIED="1403624735677" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="prim-resources" />
-    <SUITE FILE_PATH="coverage/prim-resources@Development__prim_resources.coverage" NAME="Development: prim-resources Coverage Results" MODIFIED="1405540497925" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="prim-resources" />
+    <SUITE FILE_PATH="coverage/prim-resources@Development__prim_resources.coverage" NAME="Development: prim-resources Coverage Results" MODIFIED="1405700212978" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="prim-resources" />
     <SUITE FILE_PATH="coverage/prim-resources@db_migrate__prim_resources.coverage" NAME="db:migrate: prim-resources Coverage Results" MODIFIED="1405528815341" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="prim-resources" />
     <SUITE FILE_PATH="coverage/prim-resources@routes__prim_resources.coverage" NAME="routes: prim-resources Coverage Results" MODIFIED="1403626591936" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="prim-resources" />
   </component>
@@ -50,91 +35,91 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="participant.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/participant.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="15" selection-start="302" selection-end="302" vertical-scroll-proportion="-4.2" vertical-offset="0" max-vertical-offset="432">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="social_security_number.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/social_security_number.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="0" selection-start="188" selection-end="188" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="234">
+            <state line="7" column="0" selection-start="0" selection-end="188" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="234">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="emails_controller.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="emails_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/prim_engine/api/v1/emails_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="58" column="15" selection-start="1522" selection-end="1522" vertical-scroll-proportion="0.70212764" vertical-offset="747" max-vertical-offset="1224">
+            <state line="62" column="0" selection-start="1589" selection-end="1589" vertical-scroll-proportion="0.0" vertical-offset="594" max-vertical-offset="1224">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="phone.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/phone.rb">
+      <file leaf-file-name="phones_controller.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controllers/prim_engine/api/v1/phones_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="0" selection-start="110" selection-end="172" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="216">
+            <state line="58" column="68" selection-start="1575" selection-end="1575" vertical-scroll-proportion="0.51086956" vertical-offset="856" max-vertical-offset="1224">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="date_of_birth.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/date_of_birth.rb">
+      <file leaf-file-name="participants_controller.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/prim_engine/api/v1/participants_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="3" selection-start="178" selection-end="178" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="216">
+            <state line="22" column="22" selection-start="528" selection-end="528" vertical-scroll-proportion="0.0" vertical-offset="916" max-vertical-offset="1314">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="medical_record_number.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/medical_record_number.rb">
+      <file leaf-file-name="20140714161036_create_phones.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/migrate/20140714161036_create_phones.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="24" selection-start="109" selection-end="109" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="234">
+            <state line="8" column="18" selection-start="223" selection-end="223" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="324">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="name.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/name.rb">
+      <file leaf-file-name="20140623164946_create_participants.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/migrate/20140623164946_create_participants.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="24" selection-start="109" selection-end="109" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="216">
+            <state line="6" column="21" selection-start="204" selection-end="204" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="342">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="email.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/email.rb">
+      <file leaf-file-name="20140714161111_create_emails.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/migrate/20140714161111_create_emails.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="24" selection-start="109" selection-end="109" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="234">
+            <state line="7" column="18" selection-start="201" selection-end="201" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="health_insurance_beneficiary_number.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/health_insurance_beneficiary_number.rb">
+      <file leaf-file-name="20140718153355_create_screening.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/migrate/20140718153355_create_screening.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="24" selection-start="109" selection-end="109" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="216">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="288">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ip_address_number.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/ip_address_number.rb">
+      <file leaf-file-name="screening.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/screening.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="8" selection-start="118" selection-end="118" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="216">
+            <state line="4" column="15" selection-start="125" selection-end="125" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="234">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="20140624162755_create_prim_engine_participants.prim_engine.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/migrate/20140624162755_create_prim_engine_participants.prim_engine.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="18" selection-start="160" selection-end="172" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="342">
               <folding />
             </state>
           </provider>
@@ -200,6 +185,8 @@
         <option value="$PROJECT_DIR$/app/models/participant.rb" />
         <option value="$PROJECT_DIR$/app/models/ip_address_number.rb" />
         <option value="$PROJECT_DIR$/app/models/social_security_number.rb" />
+        <option value="$PROJECT_DIR$/app/models/screening.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/prim_engine/api/v1/phones_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/prim_engine/api/v1/emails_controller.rb" />
       </list>
     </option>
@@ -212,8 +199,8 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="145" />
-    <option name="y" value="94" />
+    <option name="x" value="155" />
+    <option name="y" value="80" />
     <option name="width" value="1682" />
     <option name="height" value="1032" />
   </component>
@@ -280,6 +267,38 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="prim-resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="prim-resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="prim-resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="db" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="prim-resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="prim-resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="db" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="migrate" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -383,6 +402,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/controllers/prim_engine/api/v1" />
       <recent name="$PROJECT_DIR$/app/models" />
       <recent name="$PROJECT_DIR$/app/controllers/prim_engine" />
     </key>
@@ -392,7 +412,7 @@
       <recent name="$PROJECT_DIR$/app/controllers/v1" />
     </key>
   </component>
-  <component name="RunManager" selected="Rake.db:migrate: prim-resources">
+  <component name="RunManager" selected="Rails.Development: prim-resources">
     <configuration default="false" name="routes: prim-resources" type="RakeRunConfigurationType" factoryName="Rake" temporary="true">
       <module name="prim-resources" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
@@ -635,16 +655,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="145" y="94" width="1682" height="1032" extended-state="0" />
+    <frame x="155" y="80" width="1682" height="1032" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32869378" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25703794" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26009792" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4882227" sideWeight="0.33231333" order="7" side_tool="true" content_ui="tabs" />
@@ -653,10 +672,11 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32869378" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32869378" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -680,21 +700,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="738" />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="763" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/environment.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="549" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20140624194618_add_first_name_col_to_participants.prim_engine.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="0" selection-start="216" selection-end="216" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="216" />
@@ -720,29 +725,9 @@
         <state line="5" column="3" selection-start="176" selection-end="176" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="216" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20140624162755_create_prim_engine_participants.prim_engine.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="18" selection-start="160" selection-end="172" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="342" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20140623164946_create_participants.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="18" selection-start="234" selection-end="246" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="342" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20140714160216_create_names.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="18" selection-start="267" selection-end="279" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20140714161036_create_phones.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="18" selection-start="223" selection-end="223" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="324" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20140714161111_create_emails.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="18" selection-start="201" selection-end="201" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20140714161203_create_social_security_numbers.rb">
@@ -782,9 +767,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/db/seeds.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="343" selection-end="343" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="234">
-          <folding />
-        </state>
+        <state line="7" column="0" selection-start="343" selection-end="343" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="234" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/db/schema.rb">
@@ -796,30 +779,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Gemfile.lock">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="236" column="12" selection-start="5594" selection-end="5599" vertical-scroll-proportion="-5.3" vertical-offset="4089" max-vertical-offset="4482">
-          <folding />
-        </state>
+        <state line="236" column="12" selection-start="5594" selection-end="5599" vertical-scroll-proportion="-5.3" vertical-offset="4089" max-vertical-offset="4482" />
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.1.1/bundler/gems/prim_engine-d66dc0a42775/config/routes.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="468">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="468" />
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.1.1/bundler/gems/prim_engine-3ad8297970e0/config/routes.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="432">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="432" />
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.1.1/bundler/gems/prim_engine-3ad8297970e0/app/controllers/prim_engine/api/v1/participants_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="7" selection-start="527" selection-end="527" vertical-scroll-proportion="0.0" vertical-offset="867" max-vertical-offset="1296">
-          <folding />
-        </state>
+        <state line="19" column="7" selection-start="527" selection-end="527" vertical-scroll-proportion="0.0" vertical-offset="867" max-vertical-offset="1296" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20140714155558_remove_fields_from_participant.rb">
@@ -831,58 +806,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bin/rake">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="164" selection-end="164" vertical-scroll-proportion="0.32142857" vertical-offset="0" max-vertical-offset="448">
-          <folding />
-        </state>
+        <state line="8" column="0" selection-start="164" selection-end="164" vertical-scroll-proportion="0.32142857" vertical-offset="0" max-vertical-offset="448" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/application.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="68" selection-start="346" selection-end="346" vertical-scroll-proportion="0.4017857" vertical-offset="0" max-vertical-offset="522">
-          <folding />
-        </state>
+        <state line="10" column="68" selection-start="346" selection-end="346" vertical-scroll-proportion="0.4017857" vertical-offset="0" max-vertical-offset="522" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Rakefile">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="597">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="597" />
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.1.1/bundler/gems/prim_engine-d66dc0a42775/app/controllers/prim_engine/api/v1/api_participants_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="88" selection-start="1700" selection-end="1700" vertical-scroll-proportion="0.0" vertical-offset="777" max-vertical-offset="1242">
-          <folding />
-        </state>
+        <state line="55" column="88" selection-start="1700" selection-end="1700" vertical-scroll-proportion="0.0" vertical-offset="777" max-vertical-offset="1242" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="85" column="0" selection-start="3733" selection-end="3733" vertical-scroll-proportion="0.7589286" vertical-offset="1190" max-vertical-offset="1638">
-          <folding />
-        </state>
+        <state line="85" column="0" selection-start="3733" selection-end="3733" vertical-scroll-proportion="0.7589286" vertical-offset="1190" max-vertical-offset="1638" />
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.1.1/bundler/gems/prim_engine-6ef271ab3d61/app/controllers/prim_engine/api/v1/participants_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="23" selection-start="607" selection-end="607" vertical-scroll-proportion="0.3325893" vertical-offset="265" max-vertical-offset="1314">
-          <folding />
-        </state>
+        <state line="23" column="23" selection-start="607" selection-end="607" vertical-scroll-proportion="0.3325893" vertical-offset="265" max-vertical-offset="1314" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/environments/development.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="71" selection-start="1587" selection-end="1587" vertical-scroll-proportion="0.0" vertical-offset="362" max-vertical-offset="810">
-          <folding />
-        </state>
+        <state line="37" column="71" selection-start="1587" selection-end="1587" vertical-scroll-proportion="0.0" vertical-offset="362" max-vertical-offset="810" />
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.1.1/bundler/gems/prim_engine-2101745b1e93/app/controllers/prim_engine/api/v1/participants_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="55" selection-start="55" selection-end="55" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1314">
-          <folding />
-        </state>
+        <state line="0" column="55" selection-start="55" selection-end="55" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1314" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Gemfile">
@@ -894,16 +853,12 @@
     </entry>
     <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.1.1/bundler/gems/prim_engine-1e3f971161d7/app/controllers/prim_engine/api/v1/participants_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="93" selection-start="632" selection-end="719" vertical-scroll-proportion="0.35224587" vertical-offset="301" max-vertical-offset="1332">
-          <folding />
-        </state>
+        <state line="25" column="93" selection-start="632" selection-end="719" vertical-scroll-proportion="0.35224587" vertical-offset="301" max-vertical-offset="1332" />
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.1.1/bundler/gems/prim_engine-2101745b1e93/app/controllers/prim_engine/application_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="448">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="448" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/routes.rb">
@@ -913,18 +868,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/prim_engine/api/v1/participants_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="22" selection-start="528" selection-end="528" vertical-scroll-proportion="0.0" vertical-offset="247" max-vertical-offset="1314">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/address.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="24" selection-start="109" selection-end="109" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="234">
-          <folding />
-        </state>
+        <state line="3" column="24" selection-start="109" selection-end="109" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="234" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/date_of_birth.rb">
@@ -978,21 +924,77 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/participant.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="15" selection-start="302" selection-end="302" vertical-scroll-proportion="-4.2" vertical-offset="0" max-vertical-offset="432">
+        <state line="14" column="15" selection-start="302" selection-end="302" vertical-scroll-proportion="0.0" vertical-offset="252" max-vertical-offset="432">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20140624162755_create_prim_engine_participants.prim_engine.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="18" selection-start="160" selection-end="172" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="342">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20140623164946_create_participants.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="21" selection-start="204" selection-end="204" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="342">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20140714161111_create_emails.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="18" selection-start="201" selection-end="201" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20140718153355_create_screening.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="373">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/social_security_number.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="188" selection-end="188" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="234">
+        <state line="7" column="0" selection-start="0" selection-end="188" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="234">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/screening.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="15" selection-start="125" selection-end="125" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="234">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20140714161036_create_phones.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="18" selection-start="223" selection-end="223" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="324">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/prim_engine/api/v1/participants_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="22" selection-start="528" selection-end="528" vertical-scroll-proportion="0.0" vertical-offset="247" max-vertical-offset="1314">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/prim_engine/api/v1/emails_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="15" selection-start="1522" selection-end="1522" vertical-scroll-proportion="0.70212764" vertical-offset="747" max-vertical-offset="1224">
+        <state line="62" column="0" selection-start="1589" selection-end="1589" vertical-scroll-proportion="0.0" vertical-offset="594" max-vertical-offset="1224">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/prim_engine/api/v1/phones_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="58" column="68" selection-start="1575" selection-end="1575" vertical-scroll-proportion="0.51086956" vertical-offset="856" max-vertical-offset="1224">
           <folding />
         </state>
       </provider>

@@ -56,7 +56,7 @@ module PrimEngine
 
       # Only allow a trusted parameter "white list" through.
       def email_params
-        params.permit(:id, :email, :primary)
+        params.permit(:id, :email, :primary, :participant_id)
       end
   end
 end
