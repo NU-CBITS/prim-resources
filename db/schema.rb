@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140718153355) do
+ActiveRecord::Schema.define(version: 20140722181443) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -237,6 +237,25 @@ ActiveRecord::Schema.define(version: 20140718153355) do
     t.string "description"
   end
 
+  create_table "screening_answers", force: true do |t|
+    t.integer "screening_question_id"
+    t.string  "value"
+    t.integer "position"
+    t.boolean "active"
+  end
+
+  add_index "screening_answers", ["screening_question_id"], name: "index_screening_answers_on_screening_question_id", using: :btree
+
+  create_table "screening_questions", force: true do |t|
+    t.integer "site_id"
+    t.string  "type"
+    t.string  "value"
+    t.integer "position"
+    t.boolean "active"
+  end
+
+  add_index "screening_questions", ["site_id"], name: "index_screening_questions_on_site_id", using: :btree
+
   create_table "screenings", force: true do |t|
     t.integer "site_id"
     t.integer "participant_id"
@@ -284,6 +303,16 @@ ActiveRecord::Schema.define(version: 20140718153355) do
 
   add_index "social_security_numbers", ["participant_id"], name: "index_social_security_numbers_on_participant_id", using: :btree
 
+  create_table "statuses", force: true do |t|
+    t.integer "participant_id"
+    t.integer "site_id"
+    t.string  "name"
+    t.string  "description"
+    t.boolean "final"
+  end
+
+  add_index "statuses", ["participant_id"], name: "index_statuses_on_participant_id", using: :btree
+
   create_table "user_consents", force: true do |t|
     t.integer  "site_id"
     t.string   "irb_acceptance_image_url"
@@ -320,6 +349,7 @@ ActiveRecord::Schema.define(version: 20140718153355) do
     t.boolean  "future_contact",         default: true
     t.string   "phone"
     t.integer  "role_identifier",        default: 4
+    t.string   "external_id"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

@@ -50,7 +50,7 @@ module PrimEngine
 
     private
       # Use callbacks to share common setup or constraints between actions.
-      def set_participant
+      def set_phone
         @phone = Phone.find(params[:id])
       end
 
