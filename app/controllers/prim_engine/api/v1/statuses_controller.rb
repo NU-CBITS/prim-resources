@@ -4,7 +4,11 @@ module PrimEngine
     skip_before_filter :verify_authenticity_token
 
     def index
-      @statuses = Status.all
+      if params[:participant_id]
+        @statuses = Status.where(participant_id: params[:participant_id])
+      else
+        @statuses = Status.all
+      end
       respond_to do |format|
         format.json { render json: @statuses }
       end

@@ -7,10 +7,16 @@ module PrimEngine
     skip_before_filter :verify_authenticity_token
 
     def index
-      @participants = Participant.all
+      if params[:external_id]
+        @participants = Participant.where(external_id: params[:external_id])
+      else
+        @participants = Participant.all
+      end
+
       respond_to do |format|
         format.json { render json: @participants }
       end
+
     end
 
     def show
