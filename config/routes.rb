@@ -13,6 +13,7 @@ Rails.application.routes.draw do
         resources :phones
         resources :social_security_numbers
         resources :statuses
+        resources :screenings
       end
     end
   end

@@ -7,8 +7,8 @@ module PrimEngine
     skip_before_filter :verify_authenticity_token
 
     def index
-      if params[:external_id]
-        @screenings = Screening.find(params[:id])
+      if params[:participant_id]
+        @screenings = Screening.where(participant_id: params[:participant_id])
       else
         @screenings = Screening.all
       end
@@ -20,13 +20,18 @@ module PrimEngine
     end
 
     def show
+      if params[:participant_id]
+        @screenings = Screening.where(participant_id: params[:participant_id])
+      else
+        @screenings = Screening.all
+      end
       respond_to do |format|
-        format.json { render json: @screening }
+        format.json { render json: @screenings }
       end
     end
 
     def create
-      @screening = Screening.create
+      @screening = Screening.create(screening_params)
       respond_to do |format|
         if @screening.save
           format.json { render json: @screening, status: :created }
