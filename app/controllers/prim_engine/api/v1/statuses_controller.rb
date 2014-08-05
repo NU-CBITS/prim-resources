@@ -34,6 +34,7 @@ module PrimEngine
 
     def update
       respond_to do |format|
+        puts '~~~' + status_params.inspect
         if @status.update(status_params)
           format.json { head :no_content, status: :ok }
         else
