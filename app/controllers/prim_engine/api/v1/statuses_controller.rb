@@ -6,6 +6,8 @@ module PrimEngine
     def index
       if params[:participant_id]
         @statuses = Status.where(participant_id: params[:participant_id])
+      elsif params[:id]
+        @statuses = Status.where(id: params[:id])
       else
         @statuses = Status.all
       end
