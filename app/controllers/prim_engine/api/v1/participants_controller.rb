@@ -9,6 +9,8 @@ module PrimEngine
     def index
       if params[:external_id]
         @participants = Participant.where(external_id: params[:external_id])
+      elsif params[:participant_id]
+        @participants = Participant.where(id: params[:participant_id])
       else
         @participants = Participant.all
       end
