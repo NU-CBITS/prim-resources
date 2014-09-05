@@ -21,7 +21,7 @@ module PrimEngine
 
     def show
       if params[:participant_id]
-        @screenings = Screening.where(participant_id: params[:participant_id])
+        @screenings = Screening.where(participant_id: params[:participant_id]).reverse_order
       else
         @screenings = Screening.all
       end
