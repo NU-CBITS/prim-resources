@@ -30,6 +30,7 @@ group :development do
   gem 'capistrano-rails', '~> 1.1', require: false
   gem 'capistrano-rvm', '~> 0.1', require: false
   gem 'capistrano-bundler', '~> 1.1.2'
+  gem 'capistrano-ext'
 end
 
 group :test do

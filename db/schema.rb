@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140722181443) do
+ActiveRecord::Schema.define(version: 20140910020839) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -239,7 +239,7 @@ ActiveRecord::Schema.define(version: 20140722181443) do
 
   create_table "screening_answers", force: true do |t|
     t.integer "screening_question_id"
-    t.string  "value"
+    t.string  "answer_value"
     t.integer "position"
     t.boolean "active"
   end
@@ -248,8 +248,8 @@ ActiveRecord::Schema.define(version: 20140722181443) do
 
   create_table "screening_questions", force: true do |t|
     t.integer "site_id"
-    t.string  "type"
-    t.string  "value"
+    t.string  "question_type"
+    t.string  "question_value"
     t.integer "position"
     t.boolean "active"
   end
@@ -261,9 +261,18 @@ ActiveRecord::Schema.define(version: 20140722181443) do
     t.integer "participant_id"
     t.string  "question"
     t.string  "answer"
+    t.integer "position"
   end
 
   add_index "screenings", ["participant_id"], name: "index_screenings_on_participant_id", using: :btree
+
+  create_table "site_consent_form_versions", force: true do |t|
+    t.integer  "site_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "site_consent_form_versions", ["site_id"], name: "index_site_consent_form_versions_on_site_id", using: :btree
 
   create_table "site_images", force: true do |t|
     t.integer  "site_id"
@@ -280,6 +289,16 @@ ActiveRecord::Schema.define(version: 20140722181443) do
   add_index "site_images", ["site_id", "position"], name: "index_site_images_on_site_id_and_position", unique: true, using: :btree
   add_index "site_images", ["site_id"], name: "index_site_images_on_site_id", using: :btree
   add_index "site_images", ["user_id"], name: "index_site_images_on_user_id", using: :btree
+
+  create_table "site_phis", force: true do |t|
+    t.integer "site_id"
+    t.string  "type"
+    t.integer "position"
+    t.boolean "active"
+    t.boolean "required"
+  end
+
+  add_index "site_phis", ["site_id"], name: "index_site_phis_on_site_id", using: :btree
 
   create_table "sites", force: true do |t|
     t.string   "name"
@@ -313,6 +332,17 @@ ActiveRecord::Schema.define(version: 20140722181443) do
 
   add_index "statuses", ["participant_id"], name: "index_statuses_on_participant_id", using: :btree
 
+  create_table "user_admin_audits", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "site_id"
+    t.string   "action"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_admin_audits", ["site_id"], name: "index_user_admin_audits_on_site_id", using: :btree
+  add_index "user_admin_audits", ["user_id"], name: "index_user_admin_audits_on_user_id", using: :btree
+
   create_table "user_consents", force: true do |t|
     t.integer  "site_id"
     t.string   "irb_acceptance_image_url"
@@ -322,10 +352,21 @@ ActiveRecord::Schema.define(version: 20140722181443) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.integer  "site_consent_form_version_id"
   end
 
+  add_index "user_consents", ["site_consent_form_version_id"], name: "index_user_consents_on_site_consent_form_version_id", using: :btree
   add_index "user_consents", ["site_id"], name: "index_user_consents_on_site_id", using: :btree
   add_index "user_consents", ["user_id"], name: "index_user_consents_on_user_id", using: :btree
+
+  create_table "user_screening_flags", force: true do |t|
+    t.integer "user_id"
+    t.integer "site_id"
+    t.boolean "active"
+  end
+
+  add_index "user_screening_flags", ["site_id"], name: "index_user_screening_flags_on_site_id", using: :btree
+  add_index "user_screening_flags", ["user_id"], name: "index_user_screening_flags_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",   null: false

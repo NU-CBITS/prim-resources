@@ -69,7 +69,7 @@ module PrimEngine
 
     # Only allow a trusted parameter "white list" through.
     def screening_params
-      params.require(:screening).permit(:id, :site_id, :participant_id, :question, :answer)
+      params.require(:screening).permit(:id, :site_id, :participant_id, :question, :answer, :position)
     end
   end
 end
