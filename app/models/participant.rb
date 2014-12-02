@@ -1,8 +1,9 @@
 require 'date_of_birth'
 
+# Person registered in the system.
 class Participant < ActiveRecord::Base
   def to_param  # overridden
-    self.external_id
+    external_id
   end
 
   has_one :date_of_birth
