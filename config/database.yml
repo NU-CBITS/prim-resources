@@ -19,7 +19,6 @@ default: &default
   encoding: unicode
   pool: 5
   host: localhost
-  username: prim
 
 development:
   <<: *default
