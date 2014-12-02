@@ -31,6 +31,7 @@ group :development do
   gem 'capistrano-bundler', '~> 1.1.2'
   gem 'capistrano-ext'
   gem 'rubocop'
+  gem 'brakeman'
 end
 
 group :test do
