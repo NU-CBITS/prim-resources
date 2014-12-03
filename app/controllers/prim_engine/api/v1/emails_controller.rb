@@ -15,7 +15,7 @@ module PrimEngine
 
         def show
           respond_to do |format|
-            format.json { render json: @emails }
+            format.json { render json: @email }
           end
         end
 
@@ -60,7 +60,7 @@ module PrimEngine
         private
 
         # Use callbacks to share common setup or constraints between actions.
-        def set_participant
+        def set_email
           @email = Email.find(params[:id])
         end
 

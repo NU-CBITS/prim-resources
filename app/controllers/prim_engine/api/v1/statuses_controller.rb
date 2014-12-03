@@ -21,7 +21,7 @@ module PrimEngine
 
         def show
           respond_to do |format|
-            format.json { render json: @statuses }
+            format.json { render json: @status }
           end
         end
 

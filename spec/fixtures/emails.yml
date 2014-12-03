@@ -1,0 +1,6 @@
+<% 1000.times do |n| %>
+participant_<%= n %>:
+  participant: participant_<%= n %>
+  email: <%= Faker::Internet.email %>
+  primary: true
+<% end %>

@@ -1,0 +1,7 @@
+<% 1000.times do |n| %>
+participant_<%= n %>:
+  participant: participant_<%= n %>
+  question: question
+  answer: answer
+  position: 1
+<% end %>

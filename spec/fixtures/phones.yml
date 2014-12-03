@@ -1,0 +1,6 @@
+<% 1000.times do |n| %>
+participant_<%= n %>:
+  participant: participant_<%= n %>
+  number: <%= Faker::Number.number(10) %>
+  primary: true
+<% end %>

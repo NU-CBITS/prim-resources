@@ -18,6 +18,10 @@ task load_fixtures: :environment do
   path = File.join(File.dirname(__FILE__), '..', '..', 'spec', 'fixtures')
   ActiveRecord::FixtureSet.create_fixtures(path, [
     :participants,
-    :addresses
+    :addresses,
+    :emails,
+    :phones,
+    :screenings,
+    :statuses
   ])
 end

@@ -1,0 +1,7 @@
+<% 1000.times do |n| %>
+participant_<%= n %>:
+  participant: participant_<%= n %>
+  name: something
+  description: something something
+  final: <%= n % 2 == 0 %>
+<% end %>

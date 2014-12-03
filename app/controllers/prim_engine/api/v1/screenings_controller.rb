@@ -5,7 +5,7 @@ module PrimEngine
     module V1
       # Manage Participant Screenings.
       class ScreeningsController < ApplicationController
-        before_action :set_screening, only: [:show, :update, :destroy]
+        before_action :set_screening, only: [:update, :destroy]
 
         skip_before_action :verify_authenticity_token
 
@@ -76,7 +76,7 @@ module PrimEngine
 
         # Use callbacks to share common setup or constraints between actions.
         def set_screening
-          @screening = Screening.find_by(external_id: params[:external_id])
+          @screening = Screening.find(params[:id])
         end
 
         # Only allow a trusted parameter "white list" through.
