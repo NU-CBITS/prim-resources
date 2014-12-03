@@ -3,7 +3,7 @@ module PrimEngine
     module V1
       # Manage Participant Phones.
       class PhonesController < ApplicationController
-        before_action :set_phone, only: [:show, :edit, :update, :destroy]
+        before_action :set_phone, only: [:show, :update, :destroy]
         skip_before_action :verify_authenticity_token
 
         def index

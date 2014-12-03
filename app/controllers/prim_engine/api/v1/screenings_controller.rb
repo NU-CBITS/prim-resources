@@ -5,7 +5,7 @@ module PrimEngine
     module V1
       # Manage Participant Screenings.
       class ScreeningsController < ApplicationController
-        before_action :set_screening, only: [:show, :edit, :update, :destroy]
+        before_action :set_screening, only: [:show, :update, :destroy]
 
         skip_before_action :verify_authenticity_token
 

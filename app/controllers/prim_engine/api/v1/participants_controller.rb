@@ -5,7 +5,7 @@ module PrimEngine
     module V1
       # Manage Participants.
       class ParticipantsController < ApplicationController
-        before_action :set_participant, only: [:show, :edit, :update, :destroy]
+        before_action :set_participant, only: [:show, :update, :destroy]
 
         skip_before_action :verify_authenticity_token
 
