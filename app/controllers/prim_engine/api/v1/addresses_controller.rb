@@ -15,7 +15,7 @@ module PrimEngine
 
         def show
           respond_to do |format|
-            format.json { render json: @addresses }
+            format.json { render json: @address }
           end
         end
 

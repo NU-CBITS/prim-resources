@@ -1,0 +1,9 @@
+<% 1000.times do |n| %>
+participant_<%= n %>:
+  participant: participant_<%= n %>
+  street_1: <%= Faker::Address.street_address %>
+  city: <%= Faker::Address.city %>
+  state: <%= Faker::Address.state_abbr %>
+  zip: <%= Faker::Address.zip_code %>
+  primary: true
+<% end %>

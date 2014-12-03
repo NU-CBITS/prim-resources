@@ -22,7 +22,7 @@ default: &default
 
 development:
   <<: *default
-  database: prim_development
+  database: prim-resources_development
   password:
   encoding: unicode
   port: 5432
@@ -30,7 +30,7 @@ development:
 
 test:
   <<: *default
-  database: prim-participant_test
+  database: prim-resources_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is

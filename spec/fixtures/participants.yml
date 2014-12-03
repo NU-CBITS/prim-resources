@@ -1,0 +1,4 @@
+<% 1000.times do |n| %>
+participant_<%= n %>:
+  external_id: ext_<%= n %>
+<% end %>
