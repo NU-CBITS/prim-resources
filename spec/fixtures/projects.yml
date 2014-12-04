@@ -1,4 +1,4 @@
 <% 100.times do |n| %>
 project_<%= n %>:
-  name: <%= Faker::Commerce.product_name + rand(50).to_s %>
+  name: <%= Faker::Commerce.product_name + " " + rand(500).to_s %>
 <% end %>

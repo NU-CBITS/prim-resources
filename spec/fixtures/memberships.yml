@@ -1,5 +1,5 @@
 <% 1000.times do |n| %>
 participant_<%= n %>:
   participant: participant_<%= n %>
-  project: project_<% (n % 100) + 1 %>
+  project: project_<%= n % 100 %>
 <% end %>

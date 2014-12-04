@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe 'status resource' do
+RSpec.describe 'status resource', type: :request do
   fixtures :all
 
   describe 'GET /v1/statuses' do
     it 'sends the statuses' do
-      get '/v1/statuses'
+      get '/v1/statuses', nil, @auth_header
 
       expect(response).to be_success
       expect(json.length).to eq Status.count
@@ -19,7 +19,7 @@ RSpec.describe 'status resource' do
       end
 
       it 'sends the status' do
-        get "/v1/statuses/#{ status_id }"
+        get "/v1/statuses/#{ status_id }", nil, @auth_header
 
         expect(response).to be_success
         expect(json['id']).to eq status_id

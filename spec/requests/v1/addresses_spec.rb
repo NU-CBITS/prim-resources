@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe 'address resource' do
+RSpec.describe 'address resource', type: :request do
   fixtures :all
 
   describe 'GET /v1/addresses' do
     it 'sends the addresses' do
-      get '/v1/addresses'
+      get '/v1/addresses', nil, @auth_header
 
       expect(response).to be_success
       expect(json.length).to eq Address.count
@@ -19,7 +19,7 @@ RSpec.describe 'address resource' do
       end
 
       it 'sends the address' do
-        get "/v1/addresses/#{ address_id }"
+        get "/v1/addresses/#{ address_id }", nil, @auth_header
 
         expect(response).to be_success
         expect(json['id']).to eq address_id

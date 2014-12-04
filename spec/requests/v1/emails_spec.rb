@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe 'email resource' do
+RSpec.describe 'email resource', type: :request do
   fixtures :all
 
   describe 'GET /v1/emails' do
     it 'sends the emails' do
-      get '/v1/emails'
+      get '/v1/emails', nil, @auth_header
 
       expect(response).to be_success
       expect(json.length).to eq Email.count
@@ -19,7 +19,7 @@ RSpec.describe 'email resource' do
       end
 
       it 'sends the email' do
-        get "/v1/emails/#{ email_id }"
+        get "/v1/emails/#{ email_id }", nil, @auth_header
 
         expect(response).to be_success
         expect(json['id']).to eq email_id
