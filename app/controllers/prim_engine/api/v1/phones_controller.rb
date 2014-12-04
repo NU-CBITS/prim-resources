@@ -4,7 +4,6 @@ module PrimEngine
       # Manage Participant Phones.
       class PhonesController < ApplicationController
         before_action :set_phone, only: [:show, :update, :destroy]
-        skip_before_action :verify_authenticity_token
 
         def index
           @phones = Phone.all

@@ -7,8 +7,6 @@ module PrimEngine
       class ScreeningsController < ApplicationController
         before_action :set_screening, only: [:update, :destroy]
 
-        skip_before_action :verify_authenticity_token
-
         def index
           if params[:participant_id]
             @screenings = Screening

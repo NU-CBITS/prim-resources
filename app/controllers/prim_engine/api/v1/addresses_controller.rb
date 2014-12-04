@@ -4,7 +4,6 @@ module PrimEngine
       # Manage Participant Addresses.
       class AddressesController < ApplicationController
         before_action :set_address, only: [:show, :update, :destroy]
-        skip_before_action :verify_authenticity_token
 
         def index
           @addresses = Address.all

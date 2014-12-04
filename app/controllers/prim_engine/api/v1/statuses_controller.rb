@@ -4,7 +4,6 @@ module PrimEngine
       # Manage Participant Statuses.
       class StatusesController < ApplicationController
         before_action :set_status, only: [:show, :update, :destroy]
-        skip_before_action :verify_authenticity_token
 
         def index
           if params[:participant_id]

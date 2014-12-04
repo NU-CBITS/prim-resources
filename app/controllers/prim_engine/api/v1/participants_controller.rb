@@ -7,8 +7,6 @@ module PrimEngine
       class ParticipantsController < ApplicationController
         before_action :set_participant, only: [:show, :update, :destroy]
 
-        skip_before_action :verify_authenticity_token
-
         def index
           if params[:external_id]
             @participants = Participant.where(external_id: params[:external_id])

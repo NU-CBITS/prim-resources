@@ -4,7 +4,6 @@ module PrimEngine
       # Manage Participant Emails.
       class EmailsController < ApplicationController
         before_action :set_email, only: [:show, :update, :destroy]
-        skip_before_action :verify_authenticity_token
 
         def index
           @emails = Email.all
