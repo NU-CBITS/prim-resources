@@ -22,8 +22,7 @@ set :log_level, :debug
 set :linked_files, [
   "config/database.yml",
   "config/environments/#{ fetch(:stage) }.rb",
-  "config/initializers/secret_token.rb",
-  "config/initializers/devise_secret_token.rb"]
+  "config/initializers/secret_token.rb"]
 
 # Default value for linked_dirs is []
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
