@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141204145238) do
+ActiveRecord::Schema.define(version: 20141204160805) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,16 @@ ActiveRecord::Schema.define(version: 20141204145238) do
   end
 
   add_index "addresses", ["participant_id"], name: "index_addresses_on_participant_id", using: :btree
+
+  create_table "api_consumers", force: true do |t|
+    t.string   "name",            null: false
+    t.string   "token_salt",      null: false
+    t.string   "encrypted_token", null: false
+    t.string   "ip_address",      null: false
+    t.integer  "project_id",      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "date_of_births", force: true do |t|
     t.date     "date_of_birth"
@@ -79,6 +89,15 @@ ActiveRecord::Schema.define(version: 20141204145238) do
 
   add_index "medical_record_numbers", ["participant_id"], name: "index_medical_record_numbers_on_participant_id", using: :btree
 
+  create_table "memberships", force: true do |t|
+    t.integer  "project_id",     null: false
+    t.integer  "participant_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "memberships", ["project_id", "participant_id"], name: "index_memberships_on_project_id_and_participant_id", unique: true, using: :btree
+
   create_table "names", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -110,6 +129,14 @@ ActiveRecord::Schema.define(version: 20141204145238) do
   end
 
   add_index "phones", ["participant_id"], name: "index_phones_on_participant_id", using: :btree
+
+  create_table "projects", force: true do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "projects", ["name"], name: "index_projects_on_name", unique: true, using: :btree
 
   create_table "screenings", force: true do |t|
     t.integer "site_id"
