@@ -6,7 +6,9 @@ module PrimEngine
       # Actions for Project resources.
       class ProjectsController < ApplicationController
         def index
-          render json: scope_projects.select(:external_id, :name),
+          render json: scope_projects
+            .includes(:participants)
+            .select(:id, :external_id, :name),
                  each_serializer: PrimEngine::Serializers::Project
         end
 

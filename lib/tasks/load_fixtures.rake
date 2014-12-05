@@ -22,7 +22,9 @@ if Rails.env.development?
       :projects,
       :memberships,
       :addresses,
+      :date_of_births,
       :emails,
+      :names,
       :phones,
       :screenings,
       :statuses

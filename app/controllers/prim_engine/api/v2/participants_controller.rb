@@ -6,7 +6,9 @@ module PrimEngine
       # Actions for Participant resources.
       class ParticipantsController < ApplicationController
         def index
-          render json: scope_participants.select(:external_id),
+          render json: scope_participants
+            .includes(:phones, :date_of_birth, :addresses, :emails, :name)
+            .select(:id, :external_id),
                  each_serializer: PrimEngine::Serializers::Participant
         end
 
