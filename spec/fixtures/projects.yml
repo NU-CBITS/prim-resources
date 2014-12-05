@@ -1,5 +1,5 @@
 <% 100.times do |n| %>
 project_<%= n %>:
-  name: <%= Faker::Commerce.product_name + " " + rand(500).to_s %>
+  name: <%= Faker::Commerce.product_name + " " + rand(5000).to_s %>
   external_id: ext_<%= n %>
 <% end %>

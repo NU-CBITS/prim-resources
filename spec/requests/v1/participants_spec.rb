@@ -1,11 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe 'participants resource', type: :request do
+  include_examples 'requests'
+
   fixtures :all
 
   describe 'GET /v1/participants' do
     it 'sends the participants' do
-      get '/v1/participants', nil, @auth_header
+      get '/v1/participants', nil, all_project_auth_header
 
       expect(response).to be_success
       expect(json.length).to eq Participant.count
@@ -20,7 +22,7 @@ RSpec.describe 'participants resource', type: :request do
 
       it 'sends the participant' do
         get "/v1/participants?external_id=#{ participant_id }",
-            nil, @auth_header
+            nil, all_project_auth_header
 
         expect(response).to be_success
         expect(json.first['external_id']).to eq participant_id

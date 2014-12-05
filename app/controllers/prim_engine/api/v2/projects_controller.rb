@@ -6,7 +6,7 @@ module PrimEngine
       # Actions for Project resources.
       class ProjectsController < ApplicationController
         def index
-          render json: Project.select(:external_id, :name),
+          render json: scope_projects.select(:external_id, :name),
                  each_serializer: PrimEngine::Serializers::Project
         end
 
@@ -26,7 +26,16 @@ module PrimEngine
         private
 
         def find_project
-          @project = Project.find_by_external_id(params[:id])
+          @project = scope_projects.find_by_external_id(params[:id])
+        end
+
+        # A Consumer is either privy to all Projects, or to a single one.
+        def scope_projects
+          if current_consumer.project_id
+            @projects = Project.where(id: current_consumer.project_id)
+          else
+            @projects = Project
+          end
         end
       end
     end

@@ -34,16 +34,4 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = true
 
   config.include RequestHelpers, type: :request
-
-  config.before(:example) do
-    project = Project.first
-    unless project.nil?
-      consumer = ApiConsumer.find_or_create_by(
-        name: 'local',
-        ip_address: '127.0.0.1',
-        project: project
-      )
-      @auth_header = { 'X-AUTH-TOKEN' => consumer.token }
-    end
-  end
 end
