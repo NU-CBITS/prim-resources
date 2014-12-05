@@ -24,6 +24,8 @@ class ApiConsumer < ActiveRecord::Base
   private
 
   def generate_token
+    return unless token_salt.nil? || encrypted_token.nil?
+
     self.token_salt = SecureRandom.hex(SALT_LENGTH)
     @token = SecureRandom.hex(TOKEN_LENGTH)
     BCrypt::Engine.cost = BCRYPT_COST

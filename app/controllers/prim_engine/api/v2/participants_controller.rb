@@ -6,7 +6,7 @@ module PrimEngine
       # Actions for Participant resources.
       class ParticipantsController < ApplicationController
         def index
-          render json: Participant.select(:external_id),
+          render json: scope_participants.select(:external_id),
                  each_serializer: PrimEngine::Serializers::Participant
         end
 
@@ -16,7 +16,7 @@ module PrimEngine
                    serializer: PrimEngine::Serializers::Participant,
                    root: 'participants'
           else
-            render json: PrimEngine::ApiError.new,
+            render json: PrimEngine::ApiError.new(status: 'Not Found'),
                    serializer: PrimEngine::Serializers::ApiError,
                    root: 'errors',
                    status: :not_found
@@ -26,7 +26,17 @@ module PrimEngine
         private
 
         def find_participant
-          @participant = Participant.find_by_external_id(params[:id])
+          @participant = scope_participants.find_by_external_id(params[:id])
+        end
+
+        # A consumer is either privy to all Participants, or to only those
+        # in a particular Project.
+        def scope_participants
+          if current_consumer.project_id
+            @participants = current_consumer.project.participants
+          else
+            @participants = Participant
+          end
         end
       end
     end

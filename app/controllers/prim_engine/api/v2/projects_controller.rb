@@ -16,7 +16,7 @@ module PrimEngine
                    serializer: PrimEngine::Serializers::Project,
                    root: 'projects'
           else
-            render json: PrimEngine::ApiError.new,
+            render json: PrimEngine::ApiError.new(status: 'Not Found'),
                    serializer: PrimEngine::Serializers::ApiError,
                    root: 'errors',
                    status: :not_found

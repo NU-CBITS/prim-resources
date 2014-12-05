@@ -8,13 +8,13 @@ RSpec.describe 'Participants resource', type: :request do
       get '/v2/participants', nil, @auth_header
 
       expect(response).to be_success
-      expect(json['participants'].length).to be Participant.count
+      expect(json['participants'].length).to be Project.first.participants.count
     end
   end
 
   describe 'GET /v2/participants/:id' do
     context 'when the participant is found' do
-      let(:participant) { participants(:participant_99) }
+      let(:participant) { Project.first.participants.first }
 
       it 'sends the participant' do
         get "/v2/participants/#{ participant.external_id }", nil, @auth_header
