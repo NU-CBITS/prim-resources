@@ -1,3 +1,8 @@
+## 0.2.0
+
+  * individual and collection resources implemented for Project and Participant
+  * Participant resources scoped by API Consumer privileges
+
 ## 0.1.1
 
   * minor bug fix
