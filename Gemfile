@@ -12,6 +12,7 @@ end
 
 group :development do
   gem 'spring'
+  gem 'spring-commands-rspec'
   gem 'capistrano', '~> 3.2', require: false
   gem 'capistrano-rails', '~> 1.1', require: false
   gem 'capistrano-rvm', '~> 0.1', require: false

@@ -1,3 +1,5 @@
+require 'prim_engine'
+
 # nodoc
 class ApplicationController < ActionController::Base
   TOKEN_HEADER = 'X-AUTH-TOKEN'
@@ -20,7 +22,9 @@ class ApplicationController < ActionController::Base
 
     return if consumer && consumer.valid_token?(request.headers[TOKEN_HEADER])
 
-    errors = { errors: [{ id: SecureRandom.uuid, status: 'Unauthorized' }] }
-    render json: errors, status: :unauthorized
+    render json: [PrimEngine::ApiError.new(status: 'Unauthorized')],
+           each_serializer: PrimEngine::Serializers::ApiError,
+           root: 'errors',
+           status: :unauthorized
   end
 end
