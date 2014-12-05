@@ -60,4 +60,30 @@ RSpec.describe 'Participants resource', type: :request do
       end
     end
   end
+
+  describe 'POST /v2/participants' do
+    context 'for a consumer scoped to a single project' do
+      it 'creates a participant associated with the project' do
+        participant = {}
+        expect do
+          post '/v2/participants', participant, single_project_auth_header
+        end.to change { Project.first.participants.count }.by 1
+
+        expect(response.status).to be 201
+        expect(json['participants']).not_to be_nil
+      end
+    end
+
+    context 'for a consumer scoped to all projects' do
+      it 'creates a participant' do
+        participant = {}
+        expect do
+          post '/v2/participants', participant, all_project_auth_header
+        end.to change { Participant.count }.by 1
+
+        expect(response.status).to be 201
+        expect(json['participants']).not_to be_nil
+      end
+    end
+  end
 end

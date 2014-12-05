@@ -19,4 +19,12 @@ class Participant < ActiveRecord::Base
   has_many :ip_address_numbers
   has_many :medical_record_numbers
   has_many :phones, -> { select(:participant_id, :name, :number, :primary) }
+
+  before_validation :generate_external_id
+
+  private
+
+  def generate_external_id
+    self.external_id ||= SecureRandom.uuid
+  end
 end

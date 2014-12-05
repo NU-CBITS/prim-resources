@@ -25,6 +25,20 @@ module PrimEngine
           end
         end
 
+        def create
+          if create_participant
+            render json: @participant,
+                   serializer: PrimEngine::Serializers::Participant,
+                   root: 'participants',
+                   status: 201
+          else
+            render json: PrimEngine::ApiError.new(status: 'Bad Request'),
+                   serializer: PrimEngine::Serializers::ApiError,
+                   root: 'errors',
+                   status: :bad_request
+          end
+        end
+
         private
 
         def find_participant
@@ -39,6 +53,19 @@ module PrimEngine
           else
             @participants = Participant
           end
+        end
+
+        def create_participant
+          @participant = Participant.new
+          if current_consumer.project_id
+            current_consumer.project.participants << @participant
+          else
+            @participant.save!
+          end
+
+          true
+        rescue
+          false
         end
       end
     end
