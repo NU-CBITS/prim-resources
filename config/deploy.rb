@@ -1,5 +1,5 @@
-# config valid only for Capistrano 3.1
-lock '3.2.1'
+# config valid only for Capistrano 3.x.x
+lock '3.3.3'
 
 # The name of the application on GitHub, as well as the folder in which it
 # will be deployed.
