@@ -1,3 +1,8 @@
+## 0.3.0
+
+  * Project resources scoped by API Consumer
+  * Participant creation with date of birth enabled
+
 ## 0.2.0
 
   * individual and collection resources implemented for Project and Participant
