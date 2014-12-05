@@ -17,28 +17,30 @@ module PrimEngine
           end
 
           respond_to do |format|
-            format.json { render json: @participants }
+            format.json { render json: @participants, root: false }
           end
         end
 
         def show
           respond_to do |format|
-            format.json { render json: @participant }
+            format.json { render json: @participant, root: false }
           end
         end
 
         def create
           @participant = Participant.create
-          @participant.update external_id: Hashids
-            .new('TODO:salt_here')
-            .encrypt(@participant.id)
+          hashid = Hashids.new('TODO:salt_here').encrypt(@participant.id)
 
           respond_to do |format|
-            if @participant.save
-              format.json { render json: @participant, status: :created }
+            if @participant.update(external_id: hashid)
+              format.json do
+                render json: @participant, status: :created, root: false
+              end
             else
               format.json do
-                render json: @participant.errors, status: :unprocessable_entity
+                render json: @participant.errors,
+                       status: :unprocessable_entity,
+                       root: false
               end
             end
           end
@@ -50,7 +52,9 @@ module PrimEngine
               format.json { head :no_content, status: :ok }
             else
               format.json do
-                render json: @participant.errors, status: :unprocessable_entity
+                render json: @participant.errors,
+                       status: :unprocessable_entity,
+                       root: false
               end
             end
           end
@@ -62,7 +66,9 @@ module PrimEngine
               format.json { head :no_content, status: :ok }
             else
               format.json do
-                render json: @participant.errors, status: :unprocessable_entity
+                render json: @participant.errors,
+                       status: :unprocessable_entity,
+                       root: false
               end
             end
           end

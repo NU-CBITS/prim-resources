@@ -8,13 +8,13 @@ module PrimEngine
         def index
           @emails = Email.all
           respond_to do |format|
-            format.json { render json: @emails }
+            format.json { render json: @emails, root: false }
           end
         end
 
         def show
           respond_to do |format|
-            format.json { render json: @email }
+            format.json { render json: @email, root: false }
           end
         end
 
@@ -23,10 +23,12 @@ module PrimEngine
 
           respond_to do |format|
             if @email.save
-              format.json { render json: @email, status: :created }
+              format.json { render json: @email, status: :created, root: false }
             else
               format.json do
-                render json: @email.errors, status: :unprocessable_entity
+                render json: @email.errors,
+                       status: :unprocessable_entity,
+                       root: false
               end
             end
           end
@@ -38,7 +40,9 @@ module PrimEngine
               format.json { head :no_content, status: :ok }
             else
               format.json do
-                render json: @email.errors, status: :unprocessable_entity
+                render json: @email.errors,
+                       status: :unprocessable_entity,
+                       root: false
               end
             end
           end
@@ -50,7 +54,9 @@ module PrimEngine
               format.json { head :no_content, status: :ok }
             else
               format.json do
-                render json: @email.errors, status: :unprocessable_entity
+                render json: @email.errors,
+                       status: :unprocessable_entity,
+                       root: false
               end
             end
           end

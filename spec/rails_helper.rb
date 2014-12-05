@@ -36,11 +36,14 @@ RSpec.configure do |config|
   config.include RequestHelpers, type: :request
 
   config.before(:example) do
-    consumer = ApiConsumer.find_or_create_by(
-      name: 'local',
-      ip_address: '127.0.0.1',
-      project: Project.first
-    )
-    @auth_header = { 'X-AUTH-TOKEN' => consumer.token }
+    project = Project.first
+    unless project.nil?
+      consumer = ApiConsumer.find_or_create_by(
+        name: 'local',
+        ip_address: '127.0.0.1',
+        project: project
+      )
+      @auth_header = { 'X-AUTH-TOKEN' => consumer.token }
+    end
   end
 end

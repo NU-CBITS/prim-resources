@@ -14,13 +14,13 @@ module PrimEngine
             @statuses = Status.all
           end
           respond_to do |format|
-            format.json { render json: @statuses }
+            format.json { render json: @statuses, root: false }
           end
         end
 
         def show
           respond_to do |format|
-            format.json { render json: @status }
+            format.json { render json: @status, root: false }
           end
         end
 
@@ -29,10 +29,14 @@ module PrimEngine
 
           respond_to do |format|
             if @status.save
-              format.json { render json: @status, status: :created }
+              format.json do
+                render json: @status, status: :created, root: false
+              end
             else
               format.json do
-                render json: @status.errors, status: :unprocessable_entity
+                render json: @status.errors,
+                       status: :unprocessable_entity,
+                       root: false
               end
             end
           end
@@ -44,7 +48,9 @@ module PrimEngine
               format.json { head :no_content, status: :ok }
             else
               format.json do
-                render json: @status.errors, status: :unprocessable_entity
+                render json: @status.errors,
+                       status: :unprocessable_entity,
+                       root: false
               end
             end
           end
@@ -56,7 +62,9 @@ module PrimEngine
               format.json { head :no_content, status: :ok }
             else
               format.json do
-                render json: @status.errors, status: :unprocessable_entity
+                render json: @status.errors,
+                       status: :unprocessable_entity,
+                       root: false
               end
             end
           end

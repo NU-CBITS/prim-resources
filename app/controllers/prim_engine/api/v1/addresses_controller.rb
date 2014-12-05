@@ -8,13 +8,13 @@ module PrimEngine
         def index
           @addresses = Address.all
           respond_to do |format|
-            format.json { render json: @addresses }
+            format.json { render json: @addresses, root: false }
           end
         end
 
         def show
           respond_to do |format|
-            format.json { render json: @address }
+            format.json { render json: @address, root: false }
           end
         end
 
@@ -23,10 +23,14 @@ module PrimEngine
 
           respond_to do |format|
             if @address.save
-              format.json { render json: @address, status: :created }
+              format.json do
+                render json: @address, status: :created, root: false
+              end
             else
               format.json do
-                render json: @address.errors, status: :unprocessable_entity
+                render json: @address.errors,
+                       status: :unprocessable_entity,
+                       root: false
               end
             end
           end
@@ -38,7 +42,9 @@ module PrimEngine
               format.json { head :no_content, status: :ok }
             else
               format.json do
-                render json: @address.errors, status: :unprocessable_entity
+                render json: @address.errors,
+                       status: :unprocessable_entity,
+                       root: false
               end
             end
           end
@@ -50,7 +56,9 @@ module PrimEngine
               format.json { head :no_content, status: :ok }
             else
               format.json do
-                render json: @address.errors, status: :unprocessable_entity
+                render json: @address.errors,
+                       status: :unprocessable_entity,
+                       root: false
               end
             end
           end

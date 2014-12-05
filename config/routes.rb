@@ -9,6 +9,10 @@ Rails.application.routes.draw do
         resources :screenings, except: [:edit, :new]
         resources :statuses, except: [:edit, :new]
       end
+
+      namespace :v2 do
+        resources :projects, only: [:index, :show]
+      end
     end
   end
 end

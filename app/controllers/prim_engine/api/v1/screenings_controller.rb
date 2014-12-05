@@ -16,7 +16,7 @@ module PrimEngine
           end
 
           respond_to do |format|
-            format.json { render json: @screenings }
+            format.json { render json: @screenings, root: false }
           end
         end
 
@@ -29,7 +29,7 @@ module PrimEngine
             @screenings = Screening.all
           end
           respond_to do |format|
-            format.json { render json: @screenings }
+            format.json { render json: @screenings, root: false }
           end
         end
 
@@ -37,10 +37,14 @@ module PrimEngine
           @screening = Screening.create(screening_params)
           respond_to do |format|
             if @screening.save
-              format.json { render json: @screening, status: :created }
+              format.json do
+                render json: @screening, status: :created, root: false
+              end
             else
               format.json do
-                render json: @screening.errors, status: :unprocessable_entity
+                render json: @screening.errors,
+                       status: :unprocessable_entity,
+                       root: false
               end
             end
           end
@@ -52,7 +56,9 @@ module PrimEngine
               format.json { head :no_content, status: :ok }
             else
               format.json do
-                render json: @screening.errors, status: :unprocessable_entity
+                render json: @screening.errors,
+                       status: :unprocessable_entity,
+                       root: false
               end
             end
           end
@@ -64,7 +70,9 @@ module PrimEngine
               format.json { head :no_content, status: :ok }
             else
               format.json do
-                render json: @screening.errors, status: :unprocessable_entity
+                render json: @screening.errors,
+                       status: :unprocessable_entity,
+                       root: false
               end
             end
           end

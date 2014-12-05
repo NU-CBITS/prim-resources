@@ -8,13 +8,13 @@ module PrimEngine
         def index
           @phones = Phone.all
           respond_to do |format|
-            format.json { render json: @phones }
+            format.json { render json: @phones, root: false }
           end
         end
 
         def show
           respond_to do |format|
-            format.json { render json: @phone }
+            format.json { render json: @phone, root: false }
           end
         end
 
@@ -23,10 +23,12 @@ module PrimEngine
 
           respond_to do |format|
             if @phone.save
-              format.json { render json: @phone, status: :created }
+              format.json { render json: @phone, status: :created, root: false }
             else
               format.json do
-                render json: @phone.errors, status: :unprocessable_entity
+                render json: @phone.errors,
+                       status: :unprocessable_entity,
+                       root: false
               end
             end
           end
@@ -38,7 +40,9 @@ module PrimEngine
               format.json { head :no_content, status: :ok }
             else
               format.json do
-                render json: @phone.errors, status: :unprocessable_entity
+                render json: @phone.errors,
+                       status: :unprocessable_entity,
+                       root: false
               end
             end
           end
@@ -50,7 +54,9 @@ module PrimEngine
               format.json { head :no_content, status: :ok }
             else
               format.json do
-                render json: @phone.errors, status: :unprocessable_entity
+                render json: @phone.errors,
+                       status: :unprocessable_entity,
+                       root: false
               end
             end
           end
