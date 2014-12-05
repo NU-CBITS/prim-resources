@@ -1,12 +1,10 @@
-require 'date_of_birth'
-
 # Person registered in the system.
 class Participant < ActiveRecord::Base
   def to_param  # overridden
     external_id
   end
 
-  has_one :date_of_birth, -> { select(:participant_id, :date_of_birth) }
+  has_one :date_of_birth, -> { select(:participant_id, :date) }
   has_one :name
   has_one :social_security_number
 
@@ -21,6 +19,8 @@ class Participant < ActiveRecord::Base
   has_many :phones, -> { select(:participant_id, :name, :number, :primary) }
 
   before_validation :generate_external_id
+
+  accepts_nested_attributes_for :date_of_birth
 
   private
 

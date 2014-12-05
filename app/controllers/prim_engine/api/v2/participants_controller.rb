@@ -32,7 +32,9 @@ module PrimEngine
                    root: 'participants',
                    status: 201
           else
-            render json: PrimEngine::ApiError.new(status: 'Bad Request'),
+            error = PrimEngine::ApiError.new(status: 'Bad Request',
+                                             detail: errors_on(@participant))
+            render json: error,
                    serializer: PrimEngine::Serializers::ApiError,
                    root: 'errors',
                    status: :bad_request
@@ -56,16 +58,32 @@ module PrimEngine
         end
 
         def create_participant
-          @participant = Participant.new
-          if current_consumer.project_id
-            current_consumer.project.participants << @participant
-          else
-            @participant.save!
-          end
+          @participant = Participant.new(participant_params)
 
-          true
-        rescue
-          false
+          begin
+            if current_consumer.project_id
+              current_consumer.project.participants << @participant
+            else
+              @participant.save!
+            end
+
+            true
+          rescue
+            false
+          end
+        end
+
+        def participant_params
+          @participant_params = params
+                                .require(:participants)
+                                .permit(date_of_birth: :date)
+          @participant_params = {
+            date_of_birth_attributes: @participant_params[:date_of_birth]
+          }
+        end
+
+        def errors_on(resource)
+          resource.errors.full_messages.join ', '
         end
       end
     end

@@ -64,7 +64,9 @@ RSpec.describe 'Participants resource', type: :request do
   describe 'POST /v2/participants' do
     context 'for a consumer scoped to a single project' do
       it 'creates a participant associated with the project' do
-        participant = {}
+        participant = { participants: {
+          date_of_birth: { date: '1924-12-05' }
+        } }
         expect do
           post '/v2/participants', participant, single_project_auth_header
         end.to change { Project.first.participants.count }.by 1
@@ -76,7 +78,11 @@ RSpec.describe 'Participants resource', type: :request do
 
     context 'for a consumer scoped to all projects' do
       it 'creates a participant' do
-        participant = {}
+        participant = {
+          participants: {
+            date_of_birth: { date: '2000-01-01' }
+          }
+        }
         expect do
           post '/v2/participants', participant, all_project_auth_header
         end.to change { Participant.count }.by 1

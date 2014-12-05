@@ -1,5 +1,5 @@
 <% 1000.times do |n| %>
 participant_<%= n %>:
   participant: participant_<%= n %>
-  date_of_birth: <%= Date.today - rand(365 * 100).days %>
+  date: <%= Date.today - rand(365 * 100).days %>
 <% end %>
