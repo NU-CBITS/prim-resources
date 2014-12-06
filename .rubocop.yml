@@ -13,7 +13,23 @@ ClassLength:
   Max: 100
 
 CyclomaticComplexity:
+  Exclude:
+    - lib/prim_engine/deserializers/*.rb
   Max: 10
 
+Documentation:
+  Exclude:
+    - spec/**/*
+
 MethodLength:
+  Exclude:
+    - lib/prim_engine/deserializers/*.rb
   Max: 15
+
+NumericLiterals:
+  Exclude:
+    - spec/**/*
+
+PerceivedComplexity:
+  Exclude:
+    - lib/prim_engine/deserializers/*.rb

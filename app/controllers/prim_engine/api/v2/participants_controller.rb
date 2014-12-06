@@ -26,7 +26,8 @@ module PrimEngine
 
         def create
           if create_participant
-            render json: @participant,
+            # Serialization error (duplicate associations) without reload
+            render json: @participant.reload,
                    serializer: PrimEngine::Serializers::Participant,
                    root: 'participants',
                    status: 201
@@ -73,12 +74,7 @@ module PrimEngine
         end
 
         def participant_params
-          @participant_params = params
-                                .require(:participants)
-                                .permit(date_of_birth: :date)
-          @participant_params = {
-            date_of_birth_attributes: @participant_params[:date_of_birth]
-          }
+          PrimEngine::Deserializers::Participant.new(params).to_attrs
         end
 
         def errors_on(resource)

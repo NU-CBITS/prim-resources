@@ -47,11 +47,15 @@ class Participant < ActiveRecord::Base
 
   before_validation :generate_external_id
 
-  accepts_nested_attributes_for :date_of_birth
-  accepts_nested_attributes_for :gender
-  accepts_nested_attributes_for :ethnicity
-  accepts_nested_attributes_for :race
-  accepts_nested_attributes_for :education_level
+  accepts_nested_attributes_for :date_of_birth, reject_if: :all_blank
+  accepts_nested_attributes_for :name, reject_if: :all_blank
+  accepts_nested_attributes_for :gender, reject_if: :all_blank
+  accepts_nested_attributes_for :ethnicity, reject_if: :all_blank
+  accepts_nested_attributes_for :race, reject_if: :all_blank
+  accepts_nested_attributes_for :education_level, reject_if: :all_blank
+  accepts_nested_attributes_for :addresses, reject_if: :all_blank
+  accepts_nested_attributes_for :emails, reject_if: :all_blank
+  accepts_nested_attributes_for :phones, reject_if: :all_blank
 
   private
 

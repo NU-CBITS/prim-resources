@@ -2,5 +2,5 @@
 class EducationLevel < ActiveRecord::Base
   belongs_to :participant
 
-  validates :participant, :value, presence: true
+  validates :value, presence: true
 end
