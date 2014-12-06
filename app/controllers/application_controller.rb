@@ -1,5 +1,3 @@
-require 'prim_engine'
-
 # nodoc
 class ApplicationController < ActionController::Base
   AUTH_HEADER = 'X-AUTH-TOKEN'

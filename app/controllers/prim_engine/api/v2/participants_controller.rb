@@ -1,5 +1,3 @@
-require 'prim_engine'
-
 module PrimEngine
   module Api
     module V2
