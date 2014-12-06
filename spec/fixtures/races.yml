@@ -1,0 +1,5 @@
+<% 1000.times do |n| %>
+participant_<%= n %>:
+  participant: participant_<%= n %>
+  value: <%= ['White', 'Black or African American', 'American Indian', 'Chinese'][rand(4)] %>
+<% end %>

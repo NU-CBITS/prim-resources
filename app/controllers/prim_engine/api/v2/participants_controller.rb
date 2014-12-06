@@ -7,7 +7,8 @@ module PrimEngine
       class ParticipantsController < ApplicationController
         def index
           render json: scope_participants
-            .includes(:phones, :date_of_birth, :addresses, :emails, :name)
+            .includes(:phones, :date_of_birth, :addresses, :emails, :name,
+                      :gender, :ethnicity, :race)
             .select(:id, :external_id),
                  each_serializer: PrimEngine::Serializers::Participant
         end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141205202735) do
+ActiveRecord::Schema.define(version: 20141205221925) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,15 @@ ActiveRecord::Schema.define(version: 20141205202735) do
 
   add_index "date_of_births", ["participant_id"], name: "index_date_of_births_on_participant_id", using: :btree
 
+  create_table "education_levels", force: true do |t|
+    t.string   "value",          null: false
+    t.integer  "participant_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "education_levels", ["participant_id"], name: "index_education_levels_on_participant_id", using: :btree
+
   create_table "emails", force: true do |t|
     t.string   "email"
     t.boolean  "primary"
@@ -59,6 +68,24 @@ ActiveRecord::Schema.define(version: 20141205202735) do
   end
 
   add_index "emails", ["participant_id"], name: "index_emails_on_participant_id", using: :btree
+
+  create_table "ethnicities", force: true do |t|
+    t.text     "value",          null: false
+    t.integer  "participant_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ethnicities", ["participant_id"], name: "index_ethnicities_on_participant_id", using: :btree
+
+  create_table "genders", force: true do |t|
+    t.string   "value",          null: false
+    t.integer  "participant_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "genders", ["participant_id"], name: "index_genders_on_participant_id", using: :btree
 
   create_table "health_insurance_beneficiary_numbers", force: true do |t|
     t.string   "number"
@@ -138,6 +165,15 @@ ActiveRecord::Schema.define(version: 20141205202735) do
   end
 
   add_index "projects", ["name"], name: "index_projects_on_name", unique: true, using: :btree
+
+  create_table "races", force: true do |t|
+    t.text     "value",          null: false
+    t.integer  "participant_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "races", ["participant_id"], name: "index_races_on_participant_id", using: :btree
 
   create_table "screenings", force: true do |t|
     t.integer "site_id"

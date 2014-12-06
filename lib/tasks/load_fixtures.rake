@@ -23,9 +23,13 @@ if Rails.env.development?
       :memberships,
       :addresses,
       :date_of_births,
+      :education_levels,
       :emails,
+      :ethnicities,
+      :genders,
       :names,
       :phones,
+      :races,
       :screenings,
       :statuses
     ])
