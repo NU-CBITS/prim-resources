@@ -26,6 +26,18 @@ RSpec.describe 'Participants resource', type: :request do
     end
   end
 
+  describe 'GET /v2/participants filtered' do
+    it 'sends Participants with matching emails' do
+      e = emails(:participant_12)
+      get "/v2/participants?participants.emails.email=#{ e.email }", nil,
+          all_project_auth_header
+
+      expect(response).to be_success
+      expect(json['participants'].length).to be 1
+      expect(json['participants'][0]['id']).to eq e.participant.external_id
+    end
+  end
+
   describe 'GET /v2/participants/:id' do
     context 'when the participant is found' do
       let(:participant) { Project.first.participants.first }

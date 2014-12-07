@@ -5,8 +5,8 @@ module PrimEngine
       class ParticipantsController < ApplicationController
         def index
           render json: scope_participants
-            .includes(:phones, :date_of_birth, :addresses, :emails, :name,
-                      :gender, :ethnicity, :race)
+            .includes(:phones, :date_of_birth, :addresses, :education_level,
+                      :emails, :name, :gender, :ethnicity, :race)
             .select(:id, :external_id),
                  each_serializer: PrimEngine::Serializers::Participant
         end
@@ -47,16 +47,22 @@ module PrimEngine
           @participant = scope_participants.find_by_external_id(params[:id])
         end
 
-        # A consumer is either privy to all Participants, or to only those
+        # An API Consumer is either privy to all Participants, or to only those
         # in a particular Project.
         def scope_participants
+          filter = PrimEngine::Filters::Participant.new(params)
+
           if current_consumer.project_id
             @participants = current_consumer.project.participants
           else
             @participants = Participant
           end
+
+          filter.apply_to(@participants)
         end
 
+        # A Participant is either created as a member of a Project or not
+        # depending on the configuration of the API Consumer.
         def create_participant
           @participant = Participant.new(participant_params)
 
