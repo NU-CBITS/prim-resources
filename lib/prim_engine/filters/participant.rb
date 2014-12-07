@@ -3,8 +3,28 @@ module PrimEngine
     # Apply filters specified in the request params to a Participant.
     class Participant
       QUERY_KEYS = %w(
+        participants.addresses.name
+        participants.addresses.street_1
+        participants.addresses.street_2
+        participants.addresses.city
+        participants.addresses.state
+        participants.addresses.zip
+        participants.addresses.primary
+        participants.phones.name
+        participants.phones.number
+        participants.phones.primary
         participants.emails.email
+        participants.emails.primary
         participants.date_of_birth.date
+        participants.name.first_name
+        participants.name.last_name
+        participants.name.middle_name
+        participants.name.prefix
+        participants.name.suffix
+        participants.gender.value
+        participants.ethnicity.value
+        participants.race.value
+        participants.education_level.value
       )
 
       def initialize(request_params)
