@@ -36,6 +36,16 @@ RSpec.describe 'Participants resource', type: :request do
       expect(json['participants'].length).to be 1
       expect(json['participants'][0]['id']).to eq e.participant.external_id
     end
+
+    it 'sends Participants with matching birth dates' do
+      b = date_of_births(:participant_79)
+      get "/v2/participants?participants.date_of_birth.date=#{ b.date }", nil,
+          all_project_auth_header
+
+      expect(response).to be_success
+      expect(json['participants'].length).to be 1
+      expect(json['participants'][0]['id']).to eq b.participant.external_id
+    end
   end
 
   describe 'GET /v2/participants/:id' do
