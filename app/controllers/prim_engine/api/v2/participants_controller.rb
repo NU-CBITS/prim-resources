@@ -58,7 +58,7 @@ module PrimEngine
             @participants = Participant
           end
 
-          filter.apply_to(@participants)
+          filter.filter(@participants)
         end
 
         # A Participant is either created as a member of a Project or not

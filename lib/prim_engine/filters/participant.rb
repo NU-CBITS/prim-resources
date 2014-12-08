@@ -2,7 +2,7 @@ module PrimEngine
   module Filters
     # Apply filters specified in the request params to a Participant.
     class Participant
-      QUERY_KEYS = %w(
+      MATCH_QUERY_KEYS = %w(
         participants.addresses.name
         participants.addresses.street_1
         participants.addresses.street_2
@@ -26,21 +26,38 @@ module PrimEngine
         participants.race.value
         participants.education_level.value
       )
+      RANGE_QUERY_KEYS = %w(
+        participants.date_of_birth.date
+      )
 
       def initialize(request_params)
         @request_params = request_params
       end
 
-      def apply_to(participants, query_keys = QUERY_KEYS)
-        return participants if query_keys.count == 0
+      def filter(participants)
+        filtered = apply_match_queries(participants)
 
-        filtered = filter_matches_by(participants, query_keys.first)
-        filtered = filter_negations_by(filtered, query_keys.first)
-
-        apply_to(filtered, query_keys[1..-1])
+        apply_range_queries(filtered)
       end
 
       private
+
+      def apply_match_queries(relation, query_keys = MATCH_QUERY_KEYS)
+        return relation if query_keys.count == 0
+
+        filtered = filter_matches_by(relation, query_keys.first)
+        filtered = filter_negations_by(filtered, query_keys.first)
+
+        apply_match_queries(filtered, query_keys[1..-1])
+      end
+
+      def apply_range_queries(relation, query_keys = RANGE_QUERY_KEYS)
+        return relation if query_keys.count == 0
+
+        filtered = filter_ranges_by(relation, query_keys.first)
+
+        apply_range_queries(filtered, query_keys[1..-1])
+      end
 
       # Returns an ActiveRecord::Relation. Either the original relation, or one
       # filtered according to the query_key.
@@ -51,12 +68,12 @@ module PrimEngine
 
         return relation if query_value.nil?
 
-        _p, association_name, query_attribute = query_key.split('.')
-        association_class = association_name.singularize.classify.constantize
+        _p, association, query_attribute = query_key.split('.')
+        association_class = association.singularize.classify.constantize
         # an ActiveRecord::Relation matching the query
         matches = association_class.where(query_attribute => query_value)
 
-        relation.joins(association_name.to_sym).merge(matches)
+        relation.joins(association.to_sym).merge(matches)
       end
 
       def filter_negations_by(relation, query_key)
@@ -65,12 +82,33 @@ module PrimEngine
 
         return relation if query_value.nil?
 
-        _p, association_name, query_attribute, _op = key.split('.')
-        association_class = association_name.singularize.classify.constantize
+        _p, association, query_attribute, _op = key.split('.')
+        association_class = association.singularize.classify.constantize
         # an ActiveRecord::Relation matching the query
         matches = association_class.where.not(query_attribute => query_value)
 
-        relation.joins(association_name.to_sym).merge(matches)
+        relation.joins(association.to_sym).merge(matches)
+      end
+
+      def filter_ranges_by(relation, query_key)
+        %w( lt lteq gt gteq ).reduce(relation) do |filtered, operation|
+          key = "#{ query_key }.#{ operation }"
+          query_value = @request_params.fetch(key, nil)
+
+          if query_value.nil?
+            filtered
+          else
+            _p, association, query_attribute, _op = key.split('.')
+            association_class = association.singularize.classify.constantize
+            condition = association_class
+                        .arel_table[query_attribute]
+                        .send(operation, query_value)
+            # an ActiveRecord::Relation matching the query
+            matches = association_class.where(condition)
+
+            filtered.joins(association.to_sym).merge(matches)
+          end
+        end
       end
     end
   end
