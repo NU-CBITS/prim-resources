@@ -33,3 +33,6 @@ NumericLiterals:
 PerceivedComplexity:
   Exclude:
     - lib/prim_engine/deserializers/*.rb
+
+SingleLineBlockParams:
+  Enabled: false

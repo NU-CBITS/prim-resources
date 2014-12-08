@@ -29,7 +29,7 @@ RSpec.describe 'Participants resource', type: :request do
   describe 'GET /v2/participants filtered' do
     it 'sends Participants with matching emails' do
       e = emails(:participant_12)
-      get "/v2/participants?participants.emails.email=#{ e.email }", nil,
+      get "/v2/participants?participants.emails.email.eq=#{ e.email }", nil,
           all_project_auth_header
 
       expect(response).to be_success
@@ -39,7 +39,8 @@ RSpec.describe 'Participants resource', type: :request do
 
     it 'sends Participants with matching birth dates' do
       b = date_of_births(:participant_79)
-      get "/v2/participants?participants.date_of_birth.date=#{ b.date }", nil,
+      get "/v2/participants?participants.date_of_birth.date.eq=#{ b.date }",
+          nil,
           all_project_auth_header
 
       expect(response).to be_success
