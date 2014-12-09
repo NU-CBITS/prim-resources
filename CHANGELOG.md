@@ -1,3 +1,9 @@
+## 0.4.0
+
+  * added demographic data to Participant serialization
+  * enabled demographic data creation associated with Participants
+  * enabled filtering by equality, matching, and ranges
+
 ## 0.3.0
 
   * Project resources scoped by API Consumer
