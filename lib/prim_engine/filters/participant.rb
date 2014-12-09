@@ -88,18 +88,16 @@ module PrimEngine
         operations.reduce(relation) do |filtered, op|
           query_value = @request_params.fetch("#{ query_key }.#{ op }", nil)
 
-          if query_value.nil?
-            filtered
-          else
-            association, query_attribute = query_key.split('.')[1, 2]
-            association_class = association.singularize.classify.constantize
-            condition = association_class.arel_table[query_attribute]
-                        .send(op, decorate_query_value.call(query_value))
-            # an ActiveRecord::Relation matching the query
-            matches = association_class.where(condition)
+          next filtered if query_value.nil?
 
-            filtered.joins(association.to_sym).merge(matches)
-          end
+          association, query_attribute = query_key.split('.')[1, 2]
+          association_class = association.singularize.classify.constantize
+          condition = association_class.arel_table[query_attribute]
+                      .send(op, decorate_query_value.call(query_value))
+          # an ActiveRecord::Relation matching the query
+          matches = association_class.where(condition)
+
+          filtered.joins(association.to_sym).merge(matches)
         end
       end
     end
