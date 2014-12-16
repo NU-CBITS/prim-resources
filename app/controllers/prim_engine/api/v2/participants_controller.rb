@@ -17,10 +17,7 @@ module PrimEngine
                    serializer: PrimEngine::Serializers::Participant,
                    root: 'participants'
           else
-            render json: PrimEngine::ApiError.new(status: 'Not Found'),
-                   serializer: PrimEngine::Serializers::ApiError,
-                   root: 'errors',
-                   status: :not_found
+            render_not_found
           end
         end
 
@@ -32,12 +29,22 @@ module PrimEngine
                    root: 'participants',
                    status: 201
           else
-            error = PrimEngine::ApiError.new(status: 'Bad Request',
-                                             detail: errors_on(@participant))
-            render json: error,
-                   serializer: PrimEngine::Serializers::ApiError,
-                   root: 'errors',
-                   status: :bad_request
+            render_bad_request
+          end
+        end
+
+        def update
+          if find_participant
+            if @participant.update(participant_params)
+              render json: @participant,
+                     serializer: PrimEngine::Serializers::Participant,
+                     root: 'participants',
+                     status: 200
+            else
+              render_bad_request
+            end
+          else
+            render_not_found
           end
         end
 
@@ -85,6 +92,22 @@ module PrimEngine
 
         def errors_on(resource)
           resource.errors.full_messages.join ', '
+        end
+
+        def render_not_found
+          render json: PrimEngine::ApiError.new(status: 'Not Found'),
+                 serializer: PrimEngine::Serializers::ApiError,
+                 root: 'errors',
+                 status: :not_found
+        end
+
+        def render_bad_request
+          error = PrimEngine::ApiError.new(status: 'Bad Request',
+                                           detail: errors_on(@participant))
+          render json: error,
+                 serializer: PrimEngine::Serializers::ApiError,
+                 root: 'errors',
+                 status: :bad_request
         end
       end
     end

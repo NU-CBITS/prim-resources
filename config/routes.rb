@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
       namespace :v2 do
         resources :projects, only: [:index, :show]
-        resources :participants, only: [:index, :show, :create]
+        resources :participants, only: [:index, :show, :create, :update]
       end
     end
   end

@@ -115,4 +115,45 @@ RSpec.describe 'Participants resource', type: :request do
       end
     end
   end
+
+  describe 'PUT /v2/participants/:id' do
+    context 'when the participant is found' do
+      context 'when the update is successful' do
+        it 'reponds with success' do
+          participant = Participant.last
+          participant_mod = {}
+          put "/v2/participants/#{ participant.external_id }",
+              participant_mod,
+              all_project_auth_header
+
+          expect(response.status).to be 200
+          expect(json['participants']).not_to be_nil
+        end
+      end
+
+      context 'when the update is unsuccessful' do
+        it 'responds with bad request' do
+          participant = Participant.last
+          expect_any_instance_of(Participant).to receive(:update) { false }
+          put "/v2/participants/#{ participant.external_id }",
+              {},
+              all_project_auth_header
+
+          expect(response.status).to be 400
+          expect(json['errors']).not_to be_nil
+        end
+      end
+    end
+
+    context 'when the participant is not found' do
+      it 'responds with an error' do
+        put '/v2/participants/baz',
+            {},
+            all_project_auth_header
+
+        expect(response.status).to be 404
+        expect(json['errors']).not_to be_nil
+      end
+    end
+  end
 end
