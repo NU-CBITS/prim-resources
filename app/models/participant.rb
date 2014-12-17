@@ -5,35 +5,36 @@ class Participant < ActiveRecord::Base
   end
 
   has_one :date_of_birth,
-          -> { select(:participant_id, :date) },
+          -> { select(:id, :participant_id, :date) },
           dependent: :destroy
   has_one :name, (lambda do
-    select(:participant_id, :first_name, :last_name, :middle_name, :prefix,
+    select(:id, :participant_id, :first_name, :last_name, :middle_name, :prefix,
            :suffix)
   end),
           dependent: :destroy
   has_one :social_security_number,
           dependent: :destroy
   has_one :gender,
-          -> { select(:participant_id, :value) },
+          -> { select(:id, :participant_id, :value) },
           dependent: :destroy
   has_one :ethnicity,
-          -> { select(:participant_id, :value) },
+          -> { select(:id, :participant_id, :value) },
           dependent: :destroy
   has_one :race,
-          -> { select(:participant_id, :value) },
+          -> { select(:id, :participant_id, :value) },
           dependent: :destroy
   has_one :education_level,
-          -> { select(:participant_id, :value) },
+          -> { select(:id, :participant_id, :value) },
           dependent: :destroy
 
-  has_many :addresses, (lambda do
-    select(:participant_id, :name, :street_1, :street_2, :city, :state, :zip,
-           :primary)
+  has_many(:addresses, (lambda do
+    select(:id, :participant_id, :name, :street_1, :street_2, :city, :state,
+           :zip, :primary)
   end),
            dependent: :destroy
+          )
   has_many :emails,
-           -> { select(:participant_id, :email, :primary) },
+           -> { select(:id, :participant_id, :email, :primary) },
            dependent: :destroy
   has_many :health_insurance_beneficiary_numbers,
            dependent: :destroy
@@ -42,8 +43,11 @@ class Participant < ActiveRecord::Base
   has_many :medical_record_numbers,
            dependent: :destroy
   has_many :phones,
-           -> { select(:participant_id, :name, :number, :primary) },
+           -> { select(:id, :participant_id, :name, :number, :primary) },
            dependent: :destroy
+  has_many :screenings, dependent: :destroy
+  has_many :statuses, dependent: :destroy
+  has_many :memberships, dependent: :destroy
 
   before_validation :generate_external_id
 

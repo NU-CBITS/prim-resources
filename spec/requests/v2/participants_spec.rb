@@ -5,6 +5,8 @@ RSpec.describe 'Participants resource', type: :request do
 
   fixtures :all
 
+  let(:last_participant) { Participant.last }
+
   describe 'GET /v2/participants' do
     context 'for a consumer scoped to a single project' do
       it 'sends the participants in that project' do
@@ -120,9 +122,8 @@ RSpec.describe 'Participants resource', type: :request do
     context 'when the participant is found' do
       context 'when the update is successful' do
         it 'reponds with success' do
-          participant = Participant.last
           participant_mod = {}
-          put "/v2/participants/#{ participant.external_id }",
+          put "/v2/participants/#{ last_participant.external_id }",
               participant_mod,
               all_project_auth_header
 
@@ -133,9 +134,8 @@ RSpec.describe 'Participants resource', type: :request do
 
       context 'when the update is unsuccessful' do
         it 'responds with bad request' do
-          participant = Participant.last
           expect_any_instance_of(Participant).to receive(:update) { false }
-          put "/v2/participants/#{ participant.external_id }",
+          put "/v2/participants/#{ last_participant.external_id }",
               {},
               all_project_auth_header
 
@@ -153,6 +153,41 @@ RSpec.describe 'Participants resource', type: :request do
 
         expect(response.status).to be 404
         expect(json['errors']).not_to be_nil
+      end
+    end
+  end
+
+  describe 'DELETE /v2/participants/:id' do
+    context 'when the participant is found' do
+      context 'when the deletion is successful' do
+        it 'reponds with no content' do
+          delete "/v2/participants/#{ last_participant.external_id }",
+                 {},
+                 all_project_auth_header
+
+          expect(response.status).to be 204
+        end
+      end
+
+      context 'when the deletion is not successful' do
+        it 'responds with bad request' do
+          expect_any_instance_of(Participant).to receive(:destroy) { false }
+          delete "/v2/participants/#{ last_participant.external_id }",
+                 {},
+                 all_project_auth_header
+
+          expect(json['errors']).not_to be_nil
+          expect(response.status).to be 400
+        end
+      end
+    end
+
+    context 'when the participant is not found' do
+      it 'responds with not found' do
+        delete '/v2/participants/baz', {}, all_project_auth_header
+
+        expect(json['errors']).not_to be_nil
+        expect(response.status).to be 404
       end
     end
   end

@@ -48,6 +48,18 @@ module PrimEngine
           end
         end
 
+        def destroy
+          if find_participant
+            if @participant.destroy
+              render json: {}, status: 204
+            else
+              render_bad_request
+            end
+          else
+            render_not_found
+          end
+        end
+
         private
 
         def find_participant
