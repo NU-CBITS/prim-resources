@@ -1,3 +1,7 @@
+## 0.5.1
+
+  * added Consent Form association to Participant
+
 ## 0.5.0
 
   * enabled Participant update
