@@ -1,3 +1,8 @@
+## 0.5.0
+
+  * enabled Participant update
+  * enabled Participant destroy
+
 ## 0.4.0
 
   * added demographic data to Participant serialization
