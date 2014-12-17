@@ -25,9 +25,13 @@ module PrimEngine
         participants.ethnicity.value
         participants.race.value
         participants.education_level.value
+        participants.consent_form.expires_on
+        participants.consent_form.study_number
+        participants.consent_form.source
       )
       RANGE_QUERIES = %w(
         participants.date_of_birth.date
+        participants.consent_form.expires_on
       )
       STRING_MATCH_QUERIES = %w(
         participants.addresses.name
@@ -48,6 +52,8 @@ module PrimEngine
         participants.ethnicity.value
         participants.race.value
         participants.education_level.value
+        participants.consent_form.study_number
+        participants.consent_form.source
       )
 
       def initialize(request_params)

@@ -9,6 +9,7 @@ module PrimEngine
       has_many :addresses, serializer: PrimEngine::Serializers::Address
       has_many :phones, serializer: PrimEngine::Serializers::Phone
       has_many :emails, serializer: PrimEngine::Serializers::Email
+      has_many :consent_forms, serializer: PrimEngine::Serializers::ConsentForm
       has_one :date_of_birth, serializer: PrimEngine::Serializers::DateOfBirth
       has_one :name, serializer: PrimEngine::Serializers::Name
       has_one :gender, serializer: PrimEngine::Serializers::Gender

@@ -48,6 +48,10 @@ class Participant < ActiveRecord::Base
   has_many :screenings, dependent: :destroy
   has_many :statuses, dependent: :destroy
   has_many :memberships, dependent: :destroy
+  has_many :consent_forms, (lambda do
+    select(:id, :participant_id, :expires_on, :study_number, :source)
+  end),
+           dependent: :destroy
 
   before_validation :generate_external_id
 
@@ -60,6 +64,7 @@ class Participant < ActiveRecord::Base
   accepts_nested_attributes_for :addresses, reject_if: :all_blank
   accepts_nested_attributes_for :emails, reject_if: :all_blank
   accepts_nested_attributes_for :phones, reject_if: :all_blank
+  accepts_nested_attributes_for :consent_forms, reject_if: :all_blank
 
   private
 

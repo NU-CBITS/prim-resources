@@ -1,0 +1,7 @@
+<% 1000.times do |n| %>
+participant_<%= n %>:
+  participant: participant_<%= n %>
+  expires_on: <%= Date.today - 50.years + rand(365 * 100).days %>
+  study_number: <%= Faker::Commerce.product_name + rand(1000).to_s %>
+  source: <%= Faker::Internet.ip_v6_address %>
+<% end %>

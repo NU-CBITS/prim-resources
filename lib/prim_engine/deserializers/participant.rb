@@ -18,7 +18,8 @@ module PrimEngine
             { gender: :value },
             { name: [:first_name, :last_name, :middle_name, :prefix, :suffix] },
             { phones: [:name, :number, :primary] },
-            { race: :value }
+            { race: :value },
+            { consent_forms: [:expires_on, :study_number, :source] }
           ]
         )
         attrs = attrs[:participants] || {}
@@ -32,7 +33,8 @@ module PrimEngine
           gender_attributes: attrs[:gender] || {},
           name_attributes: attrs[:name] || {},
           phones_attributes: attrs[:phones] || [],
-          race_attributes: attrs[:race] || {}
+          race_attributes: attrs[:race] || {},
+          consent_forms_attributes: attrs[:consent_forms] || []
         }
       end
     end

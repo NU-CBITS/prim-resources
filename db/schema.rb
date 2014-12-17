@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141205221925) do
+ActiveRecord::Schema.define(version: 20141217233037) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,17 @@ ActiveRecord::Schema.define(version: 20141205221925) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "consent_forms", force: true do |t|
+    t.date     "expires_on",     null: false
+    t.string   "study_number",   null: false
+    t.integer  "participant_id", null: false
+    t.string   "source"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "consent_forms", ["participant_id"], name: "index_consent_forms_on_participant_id", using: :btree
 
   create_table "date_of_births", force: true do |t|
     t.date     "date"
