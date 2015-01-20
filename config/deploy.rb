@@ -10,7 +10,7 @@ set :application, 'prim-resources'
 set :domain_prefix, 'prim-resources'
 # The version of MRI Ruby under which the application will run. Applications
 # run behind Apache with Phusion Passenger.
-set :rvm_ruby_version, '2.1.5'
+set :rvm_ruby_version, '2.2.0'
 
 # Default value for :format is :pretty
 set :format, :pretty
