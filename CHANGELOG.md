@@ -1,3 +1,9 @@
+## 0.5.2
+
+  * updated to Ruby 2.2.0
+  * updated Brakeman and RuboCop
+  * added fields to Consent Form
+
 ## 0.5.1
 
   * added Consent Form association to Participant
