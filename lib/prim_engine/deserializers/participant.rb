@@ -19,7 +19,8 @@ module PrimEngine
             { name: [:first_name, :last_name, :middle_name, :prefix, :suffix] },
             { phones: [:name, :number, :primary] },
             { race: :value },
-            { consent_forms: [:expires_on, :study_number, :source] }
+            { consent_forms: [:expires_on, :study_number, :source, :signed_at,
+                              :version, :content] }
           ]
         )
         attrs = attrs[:participants] || {}

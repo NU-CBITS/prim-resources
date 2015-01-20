@@ -49,7 +49,8 @@ class Participant < ActiveRecord::Base
   has_many :statuses, dependent: :destroy
   has_many :memberships, dependent: :destroy
   has_many :consent_forms, (lambda do
-    select(:id, :participant_id, :expires_on, :study_number, :source)
+    select(:id, :participant_id, :expires_on, :study_number, :source,
+           :signed_at, :version, :content)
   end),
            dependent: :destroy
 

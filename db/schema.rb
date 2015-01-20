@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141217233037) do
+ActiveRecord::Schema.define(version: 20150120142732) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,12 +42,15 @@ ActiveRecord::Schema.define(version: 20141217233037) do
   end
 
   create_table "consent_forms", force: true do |t|
-    t.date     "expires_on",     null: false
-    t.string   "study_number",   null: false
-    t.integer  "participant_id", null: false
+    t.date     "expires_on",                null: false
+    t.string   "study_number",              null: false
+    t.integer  "participant_id",            null: false
     t.string   "source"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "signed_at"
+    t.string   "version",        limit: 36
+    t.text     "content"
   end
 
   add_index "consent_forms", ["participant_id"], name: "index_consent_forms_on_participant_id", using: :btree
